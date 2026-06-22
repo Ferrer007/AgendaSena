@@ -1,10 +1,13 @@
 package com.sena.agendasena.exceptions;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
-@ResponseStatus(HttpStatus.BAD_REQUEST)
+/**
+ * Se lanza cuando una solicitud incumple una regla de negocio
+ * que no es un conflicto de concurrencia (ej: capacidad excedida,
+ * horario fuera de rango, ambiente inactivo).
+ * Se traduce a HTTP 400 (Bad Request).
+ */
 public class ReglaNegocioException extends RuntimeException {
+
     public ReglaNegocioException(String mensaje) {
         super(mensaje);
     }
